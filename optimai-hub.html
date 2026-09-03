@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optimy Project Hub</title>
+<style>
+  :root{
+    --bg:#12141C;
+    --panel:#1B1E29;
+    --panel-hover:#222637;
+    --line:#2B2F3D;
+    --text:#E7E8EC;
+    --muted:#8A8F9E;
+    --amber:#E8A33D;
+    --teal:#4FBFA6;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+
+  header{
+    padding:28px 6vw 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+  }
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .brand-mark{
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:-0.02em;
+  }
+  .brand-sub{
+    color:var(--muted);
+    font-size:13px;
+  }
+  nav{
+    display:flex;
+    gap:22px;
+    font-size:14px;
+    color:var(--muted);
+  }
+  nav a:hover{color:var(--text);}
+
+  .hero{
+    padding:9vh 6vw 8vh;
+    max-width:900px;
+  }
+  .hero h1{
+    font-size:clamp(32px, 5vw, 54px);
+    font-weight:800;
+    letter-spacing:-0.03em;
+    line-height:1.18;
+  }
+  .hero h1 .accent{
+    color:var(--amber);
+  }
+  .hero p{
+    margin-top:22px;
+    font-size:17px;
+    color:var(--muted);
+    max-width:560px;
+  }
+  .hero-stats{
+    margin-top:40px;
+    display:flex;
+    gap:44px;
+  }
+  .stat-num{
+    font-size:26px;
+    font-weight:800;
+    color:var(--teal);
+  }
+  .stat-label{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+
+  section{
+    padding:6vh 6vw;
+    border-top:1px solid var(--line);
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:32px;
+  }
+  .section-head h2{
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .section-head span{
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  .roadmap{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    padding-bottom:10px;
+  }
+  .stage{
+    flex:0 0 220px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px;
+    transition:background .15s ease, transform .15s ease;
+    cursor:default;
+  }
+  .stage:hover{
+    background:var(--panel-hover);
+    transform:translateY(-2px);
+  }
+  .stage-num{
+    font-size:12px;
+    color:var(--amber);
+    font-weight:700;
+  }
+  .stage-title{
+    margin-top:10px;
+    font-size:16px;
+    font-weight:700;
+  }
+  .stage-desc{
+    margin-top:8px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .stage-status{
+    margin-top:16px;
+    display:inline-block;
+    font-size:11px;
+    padding:3px 8px;
+    border-radius:5px;
+    border:1px solid var(--line);
+    color:var(--muted);
+  }
+  .stage-status.ready{
+    color:var(--teal);
+    border-color:var(--teal);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:14px;
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px;
+  }
+  .card:hover{background:var(--panel-hover);}
+  .card-icon{
+    width:34px; height:34px;
+    border-radius:8px;
+    background:rgba(232,163,61,0.12);
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    font-weight:700;
+  }
+  .card-title{
+    margin-top:16px;
+    font-size:15px;
+    font-weight:700;
+  }
+  .card-desc{
+    margin-top:6px;
+    font-size:13px;
+    color:var(--muted);
+  }
+
+  footer{
+    padding:5vh 6vw;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:13px;
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media (max-width:640px){
+    header{flex-direction:column; align-items:flex-start; gap:14px;}
+    nav{flex-wrap:wrap; gap:14px;}
+    .hero-stats{flex-wrap:wrap; gap:24px;}
+    footer{flex-direction:column; gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-mark">Optimy Project Hub</div>
+  </div>
+  <nav>
+    <a href="#roadmap">기획 로드맵</a>
+    <a href="#resources">참고 자료</a>
+    <a href="#log">이슈 로그</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>아이디어를 <span class="accent">실제 서비스</span>로,<br>기획을 프로젝트로</h1>
+  <p>Optimy가 AI 웹 도구를 기획할 때 거치는 단계별 체크리스트와, 그 과정에서 쌓인 판단 기준·자료를 한곳에 모아나갑니다.</p>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">8</div>
+      <div class="stat-label">기획 단계</div>
+    </div>
+    <div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">준비된 자료</div>
+    </div>
+    <div>
+      <div class="stat-num">5</div>
+      <div class="stat-label">진행 중</div>
+    </div>
+  </div>
+</div>
+
+<section id="roadmap">
+  <div class="section-head">
+    <h2>기획 로드맵</h2>
+    <span>단계를 눌러 세부 자료를 확인하세요 (준비 중)</span>
+  </div>
+  <div class="roadmap">
+    <div class="stage">
+      <div class="stage-num">01</div>
+      <div class="stage-title">시장·문제 정의</div>
+      <div class="stage-desc">타깃 사용자와 해결하려는 문제를 명확히 좁힙니다.</div>
+      <span class="stage-status ready">자료 있음</span>
+    </div>
+    <div class="stage">
+      <div class="stage-num">02</div>
+      <div class="stage-title">경쟁·레퍼런스 조사</div>
+      <div class="stage-desc">유사 서비스의 구조와 차별점을 분석합니다.</div>
+      <span class="stage-status ready">자료 있음</span>
+    </div>
+    <div class="stage">
+      <div class="stage-num">03</div>
+      <div class="stage-title">정보 구조(IA) 설계</div>
+      <div class="stage-desc">화면과 데이터 흐름을 뼈대로 잡습니다.</div>
+      <span class="stage-status">준비 중</span>
+    </div>
+    <div class="stage">
+      <div class="stage-num">04</div>
+      <div class="stage-title">UX 와이어프레임</div>
+      <div class="stage-desc">핵심 플로우를 저해상도로 검증합니다.</div>
+      <span class="stage-status">준비 중</span>
+    </div>
+    <div class="stage">
+      <div class="stage-num">05</div>
+      <div class="stage-title">노코드/AI 프로토타입</div>
+      <div class="stage-desc">빠르게 동작하는 형태로 만들어 반응을 봅니다.</div>
+      <span class="stage-status ready">자료 있음</span>
+    </div>
+    <div class="stage">
+      <div class="stage-num">06</div>
+      <div class="stage-title">데이터·CRM 설계</div>
+      <div class="stage-desc">고객 데이터와 자동화 흐름을 설계합니다.</div>
+      <span class="stage-status">준비 중</span>
+    </div>
+    <div class="stage">
+      <div class="stage-num">07</div>
+      <div class="stage-title">LLM 연동 검토</div>
+      <div class="stage-desc">어디에 AI를 붙일지, 비용과 효과를 따집니다.</div>
+      <span class="stage-status">준비 중</span>
+    </div>
+    <div class="stage">
+      <div class="stage-num">08</div>
+      <div class="stage-title">런칭 · 브랜딩</div>
+      <div class="stage-desc">이름, 톤앤매너, 첫 출시 채널을 정리합니다.</div>
+      <span class="stage-status">준비 중</span>
+    </div>
+  </div>
+</section>
+
+<section id="resources">
+  <div class="section-head">
+    <h2>참고 자료</h2>
+    <span>계속 채워가는 실무 노트</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">용</div>
+      <div class="card-title">용어 사전</div>
+      <div class="card-desc">기획 회의에서 반복되는 용어를 정리합니다.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">팁</div>
+      <div class="card-title">기획 팁</div>
+      <div class="card-desc">프로젝트마다 얻은 짧은 교훈을 기록합니다.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">템</div>
+      <div class="card-title">문서 템플릿</div>
+      <div class="card-desc">기획서·와이어프레임 등 반복 양식 모음.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">사</div>
+      <div class="card-title">사례 노트</div>
+      <div class="card-desc">참고할 만한 서비스의 구조를 분석합니다.</div>
+    </div>
+  </div>
+</section>
+
+<section id="log">
+  <div class="section-head">
+    <h2>이슈 로그</h2>
+    <span>진행 중 발견한 문제와 해결 방법</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">아직 기록된 이슈가 없습니다</div>
+      <div class="card-desc">프로젝트가 진행되면 이곳에 문제와 해결 과정을 남겨두세요.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Optimy · Optimal AI Solutions</div>
+  <div>이 페이지는 데모용 정적 템플릿입니다</div>
+</footer>
+
+</body>
+</html>
