@@ -169,6 +169,11 @@
     padding:22px;
   }
   .card:hover{background:var(--panel-hover);}
+  a.card{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+  }
   .card-icon{
     width:34px; height:34px;
     border-radius:8px;
@@ -247,11 +252,16 @@
     <span>기획 로드맵을 따라 진행 중인 프로젝트</span>
   </div>
   <div class="grid">
-    <div class="card">
+    <a class="card" href="https://teenbridge-demo.netlify.app/" target="_blank" rel="noopener">
       <div class="card-icon">상</div>
       <div class="card-title">사춘기 청소년 상담분석 앱</div>
       <div class="card-desc">사춘기 청소년 상담 데이터를 분석하는 AI 웹 서비스를 기획 중입니다.</div>
-    </div>
+    </a>
+    <a class="card" href="https://my-bookmark-news.vercel.app/" target="_blank" rel="noopener">
+      <div class="card-icon">북</div>
+      <div class="card-title">북마크 뉴스 앱</div>
+      <div class="card-desc">Vercel에 배포된 북마크 뉴스 서비스입니다.</div>
+    </a>
   </div>
 </section>
 
