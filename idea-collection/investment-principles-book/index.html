@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>투자의 정석 (가제) | Optimy Project Hub</title>
+<style>
+  :root{
+    --bg:#12141C;
+    --panel:#1B1E29;
+    --panel-hover:#222637;
+    --line:#2B2F3D;
+    --text:#E7E8EC;
+    --muted:#8A8F9E;
+    --amber:#E8A33D;
+    --teal:#4FBFA6;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+
+  header{
+    padding:28px 6vw 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+  }
+  .back{color:var(--muted); font-size:14px;}
+  .back:hover{color:var(--text);}
+
+  .hero{
+    padding:7vh 6vw 6vh;
+    max-width:860px;
+  }
+  .kicker{color:var(--amber); font-size:13px; font-weight:700; letter-spacing:.02em;}
+  .hero h1{
+    margin-top:10px;
+    font-size:clamp(28px, 4.5vw, 44px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:1.25;
+  }
+  .hero p{
+    margin-top:18px;
+    font-size:16px;
+    color:var(--muted);
+    max-width:620px;
+  }
+  .hero-links{
+    margin-top:28px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .hero-links a{
+    font-size:13px;
+    padding:9px 14px;
+    border:1px solid var(--line);
+    border-radius:7px;
+    color:var(--text);
+    background:var(--panel);
+  }
+  .hero-links a:hover{background:var(--panel-hover); border-color:var(--amber);}
+
+  section{
+    padding:5vh 6vw;
+    border-top:1px solid var(--line);
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .section-head h2{
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .section-head span{
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  .progress{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .progress .num{font-size:24px; font-weight:800; color:var(--teal);}
+  .progress .label{font-size:12px; color:var(--muted); margin-top:4px;}
+
+  .toc{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .toc-part{
+    padding:14px 18px;
+    background:var(--panel);
+    font-size:12px;
+    font-weight:700;
+    color:var(--amber);
+    border-top:1px solid var(--line);
+  }
+  .toc-part:first-child{border-top:none;}
+  .toc-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 18px;
+    border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .toc-item.linked:hover{background:var(--panel-hover);}
+  .toc-item .ch-title{display:flex; gap:10px; align-items:baseline;}
+  .toc-item .ch-num{color:var(--muted); font-size:12px; min-width:22px;}
+  .status{
+    font-size:11px;
+    padding:3px 8px;
+    border-radius:5px;
+    border:1px solid var(--line);
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .status.done{color:var(--teal); border-color:var(--teal);}
+
+  footer{
+    padding:5vh 6vw;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:13px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="../../optimai-hub.html">&larr; Optimy Project Hub</a>
+</header>
+
+<div class="hero">
+  <div class="kicker">아이디어 모음 · 책 집필 프로젝트</div>
+  <h1>투자의 정석 (가제)</h1>
+  <p>사회초년생이 된 자녀에게 물려주고 싶은 투자 원칙을, 3년에 걸쳐 천천히 기록해 발행하는 개인 집필 프로젝트입니다. 아래에서 기획 문서와 지금까지 쓰인 원고를 확인할 수 있습니다.</p>
+  <div class="hero-links">
+    <a href="https://github.com/optimy826/Optimy-Hub/blob/master/idea-collection/investment-principles-book/00-기획서.md" target="_blank" rel="noopener">기획서 보기</a>
+    <a href="https://github.com/optimy826/Optimy-Hub/blob/master/idea-collection/investment-principles-book/01-기술명세서.md" target="_blank" rel="noopener">집필 명세서 보기</a>
+    <a href="https://github.com/optimy826/Optimy-Hub/blob/master/idea-collection/investment-principles-book/02-목차초안.md" target="_blank" rel="noopener">목차 원본 보기</a>
+  </div>
+</div>
+
+<section>
+  <div class="section-head">
+    <h2>집필 진행 현황</h2>
+    <span>2026-10-04 기준</span>
+  </div>
+  <div class="progress">
+    <div><div class="num">1 / 24</div><div class="label">원고 완성(초안) 장 수</div></div>
+    <div><div class="num">8</div><div class="label">부(Part) 구성</div></div>
+    <div><div class="num">3년</div><div class="label">목표 발행 로드맵</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <h2>목차</h2>
+    <span>원고가 있는 장은 클릭해서 바로 읽을 수 있습니다</span>
+  </div>
+  <div class="toc">
+    <div class="toc-part">1부 — 왜 투자해야 하는가</div>
+    <a class="toc-item linked" href="https://github.com/optimy826/Optimy-Hub/blob/master/idea-collection/investment-principles-book/chapters/01-시간이-주는-복리의-마법.md" target="_blank" rel="noopener">
+      <div class="ch-title"><span class="ch-num">01</span><span>시간이 주는 '복리의 마법'</span></div>
+      <span class="status done">초안 완료</span>
+    </a>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">02</span><span>월급만으로는 부족한 이유</span></div>
+      <span class="status">준비 중</span>
+    </div>
+
+    <div class="toc-part">2부 — 시작하기 전에</div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">03</span><span>비상금부터 만들어라</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">04</span><span>지출을 먼저 파악해야 투자도 보인다</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">05</span><span>목표 없는 투자는 표류한다</span></div>
+      <span class="status">준비 중</span>
+    </div>
+
+    <div class="toc-part">3부 — 자산군 이해하기</div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">06</span><span>예적금 — 가장 안전하지만 가장 흔히 과신하는 자산</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">07</span><span>채권이란 무엇인가</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">08</span><span>주식 — 기업의 일부를 소유한다는 것</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">09</span><span>부동산, 지금 세대에게는 다른 이야기</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">10</span><span>현금성 자산과 유동성의 가치</span></div>
+      <span class="status">준비 중</span>
+    </div>
+
+    <div class="toc-part">4부 — 포트폴리오의 기본 원칙</div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">11</span><span>분산투자, 달걀을 한 바구니에 담지 마라</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">12</span><span>자산배분이 수익률보다 중요한 이유</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">13</span><span>리밸런싱 — 원칙을 지키는 기술</span></div>
+      <span class="status">준비 중</span>
+    </div>
+
+    <div class="toc-part">5부 — 한국 제도 활용하기</div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">14</span><span>연금저축과 IRP, 세액공제의 힘</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">15</span><span>ISA 계좌 제대로 쓰기</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">16</span><span>투자와 세금</span></div>
+      <span class="status">준비 중</span>
+    </div>
+
+    <div class="toc-part">6부 — 실전에서 흔들리지 않는 법</div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">17</span><span>폭락장에서 해야 할 일, 하지 말아야 할 일</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">18</span><span>뉴스와 소음을 걸러내는 법</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">19</span><span>레버리지와 빚투의 유혹</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">20</span><span>사기와 과도한 수익 약속을 구별하는 법</span></div>
+      <span class="status">준비 중</span>
+    </div>
+
+    <div class="toc-part">7부 — 투자를 넘어선 돈 관리</div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">21</span><span>보험, 얼마나 어떻게 들어야 하나</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">22</span><span>좋은 빚과 나쁜 빚</span></div>
+      <span class="status">준비 중</span>
+    </div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">23</span><span>가족과 돈 이야기를 나누는 법</span></div>
+      <span class="status">준비 중</span>
+    </div>
+
+    <div class="toc-part">8부 — 마무리</div>
+    <div class="toc-item">
+      <div class="ch-title"><span class="ch-num">24</span><span>부모가 전하는 마지막 원칙들</span></div>
+      <span class="status">준비 중</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  이 페이지는 집필 진행 상황을 보여주는 작업용 페이지입니다 · 목차와 제목은 집필 중 바뀔 수 있습니다
+</footer>
+
+</body>
+</html>
