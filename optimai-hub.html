@@ -200,6 +200,34 @@
     font-size:13px;
     color:var(--muted);
   }
+  .card.has-plan{
+    position:relative;
+  }
+  .card-stretch-link{
+    position:absolute;
+    inset:0;
+    z-index:1;
+  }
+  .card-plan-link{
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    z-index:2;
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:rgba(79,191,166,0.12);
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+  }
+  .card-plan-link:hover{
+    background:rgba(79,191,166,0.22);
+    border-color:var(--teal);
+  }
 
   footer{
     padding:5vh 6vw;
@@ -257,11 +285,13 @@
     <span>기획 로드맵을 따라 진행 중인 프로젝트</span>
   </div>
   <div class="grid">
-    <a class="card" href="https://teenbridge-demo.netlify.app/" target="_blank" rel="noopener">
+    <div class="card has-plan">
+      <a class="card-stretch-link" href="https://teenbridge-demo.netlify.app/" target="_blank" rel="noopener" aria-label="틴브릿지 데모 열기"></a>
       <div class="card-icon">상</div>
       <div class="card-title">사춘기 청소년 상담분석 앱</div>
       <div class="card-desc">Netlify에 배포된 틴브릿지(TeenBridge) MVP 데모입니다. 청소년·학부모·전문가 역할별 화면을 제공합니다.</div>
-    </a>
+      <a class="card-plan-link" href="https://claude.ai/code/artifact/efd11754-49e7-4df4-bd68-9812ebb86656" target="_blank" rel="noopener" title="프로젝트 완성 1개월 계획서">🗓️</a>
+    </div>
     <a class="card" href="https://my-bookmark-news.vercel.app/" target="_blank" rel="noopener">
       <div class="card-icon">북</div>
       <div class="card-title">북마크 뉴스 앱</div>
