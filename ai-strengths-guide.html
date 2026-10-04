@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI별 특장점 가이드 · Optimy</title>
+<style>
+  :root{
+    --bg:#12141C;
+    --panel:#1B1E29;
+    --panel-hover:#222637;
+    --line:#2B2F3D;
+    --text:#E7E8EC;
+    --muted:#8A8F9E;
+    --amber:#E8A33D;
+    --teal:#4FBFA6;
+    --rose:#E07A7A;
+    --blue:#6FA8DC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .wrap{max-width:900px; margin:0 auto; padding:6vh 6vw 10vh;}
+
+  .backlink{
+    display:inline-block;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:28px;
+  }
+  .backlink:hover{color:var(--text);}
+
+  header h1{
+    font-size:clamp(26px, 4vw, 38px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:1.3;
+  }
+  header h1 .accent{color:var(--amber);}
+  header p{
+    margin-top:14px;
+    color:var(--muted);
+    font-size:15px;
+    max-width:640px;
+  }
+  .meta{
+    margin-top:18px;
+    display:inline-block;
+    font-size:12px;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:4px 10px;
+  }
+
+  section{margin-top:56px;}
+  section h2{
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  section h2::before{
+    content:"";
+    width:4px; height:18px;
+    background:var(--amber);
+    border-radius:2px;
+    display:inline-block;
+  }
+  section > p.lead{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:14px;
+    max-width:680px;
+  }
+
+  .table-wrap{margin-top:22px; overflow-x:auto; border:1px solid var(--line); border-radius:10px;}
+  table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:640px;}
+  th, td{padding:12px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;}
+  thead th{background:var(--panel); color:var(--amber); font-weight:700; font-size:12.5px;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:var(--panel-hover);}
+  td.muted, span.muted{color:var(--muted);}
+
+  .ai-grid{
+    margin-top:22px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+    gap:16px;
+  }
+  .ai-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:22px;
+  }
+  .ai-card .tag{
+    display:inline-block;
+    font-size:11px;
+    font-weight:700;
+    padding:3px 9px;
+    border-radius:5px;
+    margin-bottom:12px;
+  }
+  .tag.claude{color:var(--amber); border:1px solid var(--amber);}
+  .tag.gpt{color:var(--teal); border:1px solid var(--teal);}
+  .tag.gemini{color:var(--blue); border:1px solid var(--blue);}
+  .tag.perplexity{color:var(--rose); border:1px solid var(--rose);}
+  .ai-card h3{font-size:16px; font-weight:700;}
+  .ai-card .dev{font-size:12px; color:var(--muted); margin-top:2px;}
+  .ai-card ul{margin-top:14px; padding-left:18px; font-size:13.5px; color:var(--text);}
+  .ai-card ul li{margin-top:7px;}
+  .ai-card .best-for{
+    margin-top:14px;
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    padding-top:12px;
+  }
+  .ai-card .best-for b{color:var(--teal); font-weight:700;}
+
+  .matrix-grid{
+    margin-top:22px;
+    display:grid;
+    gap:10px;
+  }
+  .matrix-row{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:16px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 18px;
+    align-items:center;
+  }
+  .matrix-row .task{font-size:14px; font-weight:600;}
+  .matrix-row .pick{font-size:13px; color:var(--muted);}
+  .matrix-row .pick b{color:var(--teal); font-weight:700;}
+
+  .principle-list{margin-top:20px; display:grid; gap:14px;}
+  .principle{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:3px solid var(--teal);
+    border-radius:8px;
+    padding:16px 18px;
+  }
+  .principle b{display:block; font-size:14.5px; margin-bottom:4px;}
+  .principle span{font-size:13.5px; color:var(--muted);}
+
+  .callout{
+    margin-top:22px;
+    background:rgba(232,163,61,0.08);
+    border:1px solid rgba(232,163,61,0.35);
+    border-radius:10px;
+    padding:16px 18px;
+    font-size:13.5px;
+    color:var(--text);
+  }
+  .callout b{color:var(--amber);}
+
+  footer{
+    margin-top:70px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:12.5px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (max-width:640px){
+    .matrix-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a class="backlink" href="optimai-hub.html">&larr; Optimy Project Hub로 돌아가기</a>
+
+  <header>
+    <h1>기획 로드맵 01 · <span class="accent">AI 모델별 특장점</span> 파악하기</h1>
+    <p>AI를 "다 비슷한 챗봇"으로 뭉뚱그리지 않고, 업무 성격에 맞춰 골라 쓰는 눈을 기르기 위한 학습 노트입니다. 기획 단계마다 어떤 AI를 보조 도구로 쓸지 판단하는 기준으로 활용합니다.</p>
+    <span class="meta">마지막 자동 갱신: 2026-10-04 (매월 자동 조사 · 사람 최종 확인 대기) · 모델은 계속 업데이트되니 아래 내용을 "판단 기준"으로, 정확한 버전은 공식 홈페이지로 재확인하세요</span>
+  </header>
+
+  <section id="compare">
+    <h2>한눈에 보는 비교</h2>
+    <p class="lead">같은 질문도 AI마다 접근 방식이 다릅니다. 아래는 "무엇을 잘하는가"를 기준으로 정리한 요약표입니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>AI</th>
+            <th>개발사</th>
+            <th>가장 잘하는 것</th>
+            <th>상대적으로 약한 것</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Claude</b></td>
+            <td class="muted">Anthropic</td>
+            <td>코딩(전체 파일 리팩터링·아키텍처 이해)과 자연스러운 글쓰기에서 꾸준히 최상위권. 긴 문서를 끝까지 지시사항대로 다루는 안정성</td>
+            <td class="muted">실시간 웹 검색·최신 이슈 추적은 검색 연동이 따로 필요</td>
+          </tr>
+          <tr>
+            <td><b>ChatGPT</b></td>
+            <td class="muted">OpenAI</td>
+            <td>가장 넓은 사용자 기반과 생태계(음성·이미지·영상 생성, 60개 이상 앱 연동). 수학적 추론 벤치마크 1위권</td>
+            <td class="muted">아주 긴 문서를 한 번에 다룰 때 지시사항이 흐려질 수 있음</td>
+          </tr>
+          <tr>
+            <td><b>Gemini</b></td>
+            <td class="muted">Google</td>
+            <td>업계 최대 수준 컨텍스트 창(100만 토큰대)과 이미지·영상·오디오 멀티모달 처리. 구글 서비스 네이티브 연동, 빠르고 저렴</td>
+            <td class="muted">복잡한 멀티턴 지시사항에서 상위 모델 대비 일관성 편차</td>
+          </tr>
+          <tr>
+            <td><b>Perplexity</b></td>
+            <td class="muted">Perplexity AI</td>
+            <td>출처가 달린 실시간 리서치의 사실상 1순위. Comet 브라우저로 웹 작업 자동화까지 확장</td>
+            <td class="muted">창작형 글쓰기나 긴 코드 작업에는 특화되어 있지 않음</td>
+          </tr>
+          <tr>
+            <td><b>Copilot</b></td>
+            <td class="muted">Microsoft</td>
+            <td>Word·Excel·Outlook·Windows 등 MS 생태계 내 업무 자동화</td>
+            <td class="muted">MS 생태계 밖에서는 활용도가 제한적</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="cards">
+    <h2>AI별 상세 특징</h2>
+    <p class="lead">"무엇에 쓰면 좋은가"를 중심으로 정리했습니다.</p>
+    <div class="ai-grid">
+
+      <div class="ai-card">
+        <span class="tag claude">Claude</span>
+        <h3>Claude (Anthropic)</h3>
+        <div class="dev">Opus·Sonnet·Haiku 최신 세대 (버전은 자주 갱신)</div>
+        <ul>
+          <li>긴 글/코드를 끝까지 지시사항대로 따라가는 꾸준함이 강점</li>
+          <li>파일·코드베이스 전체를 읽고 구조적으로 수정하는 에이전틱 작업(Claude Code)에 특화 — 코딩 벤치마크(SWE-bench)에서 꾸준히 상위권</li>
+          <li>톤이 신중하고 과장이 적어, 기획서·보고서 초안에 바로 쓰기 좋은 문장 — 블라인드 글쓰기 비교에서도 "AI 느낌이 가장 적다"는 평가</li>
+          <li>큰 컨텍스트(긴 문서, 여러 파일)를 한 번에 올려놓고 일관되게 다룸</li>
+        </ul>
+        <div class="best-for"><b>이럴 때 추천:</b> 기획서/제안서 초안·교정, 코드 작성 및 리팩토링, 긴 문서 요약·분석, 꼼꼼한 검토가 필요한 작업</div>
+      </div>
+
+      <div class="ai-card">
+        <span class="tag gpt">ChatGPT</span>
+        <h3>ChatGPT (OpenAI)</h3>
+        <div class="dev">GPT 최신 세대 (버전은 자주 갱신)</div>
+        <ul>
+          <li>가장 넓은 활용 범위 — 글쓰기, 코딩, 이미지 생성, 음성 대화를 한 앱에서</li>
+          <li>GPTs/커스텀 챗봇, 60개 이상 앱 연동 등 생태계 폭이 가장 넓음</li>
+          <li>수학/논리 추론 벤치마크에서 꾸준히 최상위권 — 정량적 분석·계산이 섞인 작업에 유리</li>
+          <li>대중적으로 가장 널리 쓰여 "일반적인 반응"을 테스트하기 좋음</li>
+        </ul>
+        <div class="best-for"><b>이럴 때 추천:</b> 빠른 아이디어 발산, 이미지/썸네일 생성, 범용 Q&A, 가벼운 코드 스니펫, 음성 기반 작업</div>
+      </div>
+
+      <div class="ai-card">
+        <span class="tag gemini">Gemini</span>
+        <h3>Gemini (Google)</h3>
+        <div class="dev">Gemini 최신 세대 (버전은 자주 갱신)</div>
+        <ul>
+          <li>Gmail·Docs·Sheets·Drive 등 구글 워크스페이스에 바로 꽂혀 들어감</li>
+          <li>업계 최대급 컨텍스트 창(100만 토큰 이상)과 영상·이미지 등 멀티모달 입력 처리에 강함</li>
+          <li>구글 검색과 결합되어 실시간 정보 반영이 비교적 수월, 속도·가격 대비 효율이 좋음</li>
+          <li>안드로이드/크롬 환경에서 접근성이 가장 좋음</li>
+        </ul>
+        <div class="best-for"><b>이럴 때 추천:</b> 구글 문서·스프레드시트 작업 자동화, 영상/이미지 분석, 검색 결합이 필요한 리서치</div>
+      </div>
+
+      <div class="ai-card">
+        <span class="tag perplexity">Perplexity</span>
+        <h3>Perplexity</h3>
+        <div class="dev">자체 모델 + 외부 모델 혼합</div>
+        <ul>
+          <li>답변마다 출처(링크)를 함께 제시 — 사실 확인이 쉬움</li>
+          <li>최신 뉴스, 트렌드, 가격 비교 등 "지금 상황"을 묻는 질문에 강함</li>
+          <li>리서치 목적의 질문에 최적화된 검색형 인터페이스</li>
+          <li>Comet 브라우저로 웹 리서치·작업 자동화까지 영역 확장 중</li>
+        </ul>
+        <div class="best-for"><b>이럴 때 추천:</b> 경쟁사/레퍼런스 조사, 최신 시장 동향 파악, 출처가 필요한 사실 확인</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="matrix">
+    <h2>업무 유형별 추천 매트릭스</h2>
+    <p class="lead">Optimy 기획 과정에서 자주 마주치는 업무를 기준으로 정리했습니다.</p>
+    <div class="matrix-grid">
+      <div class="matrix-row">
+        <div class="task">기획서·제안서 초안 작성</div>
+        <div class="pick"><b>Claude</b> — 길고 구조적인 글을 일관되게 끝까지 작성</div>
+      </div>
+      <div class="matrix-row">
+        <div class="task">아이디어 브레인스토밍</div>
+        <div class="pick"><b>ChatGPT</b> — 빠르고 가벼운 발산에 유리</div>
+      </div>
+      <div class="matrix-row">
+        <div class="task">경쟁사·시장 조사</div>
+        <div class="pick"><b>Perplexity</b> 또는 <b>Gemini</b> — 출처 있는 최신 정보 수집</div>
+      </div>
+      <div class="matrix-row">
+        <div class="task">웹/앱 프로토타입 코딩</div>
+        <div class="pick"><b>Claude</b> (Claude Code) — 전체 코드베이스를 이해하고 일관되게 수정</div>
+      </div>
+      <div class="matrix-row">
+        <div class="task">썸네일·목업 이미지 생성</div>
+        <div class="pick"><b>ChatGPT</b> 이미지 생성 — 빠른 비주얼 시안</div>
+      </div>
+      <div class="matrix-row">
+        <div class="task">구글 시트/문서 자동화</div>
+        <div class="pick"><b>Gemini</b> — 워크스페이스 네이티브 연동</div>
+      </div>
+      <div class="matrix-row">
+        <div class="task">긴 인터뷰/설문 응답 분석</div>
+        <div class="pick"><b>Claude</b> — 긴 텍스트를 한 번에 올려 패턴 요약</div>
+      </div>
+      <div class="matrix-row">
+        <div class="task">실시간 트렌드·뉴스 체크</div>
+        <div class="pick"><b>Perplexity</b> — 출처가 붙은 최신 요약</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <h2>실전 활용 원칙</h2>
+    <div class="principle-list">
+      <div class="principle">
+        <b>1. 하나의 AI에 의존하지 말고 조합한다</b>
+        <span>리서치는 Perplexity/Gemini로, 초안 작성은 Claude로, 비주얼 시안은 ChatGPT로 — 작업 단계별로 바꿔가며 쓰는 것이 결과물 품질을 높입니다.</span>
+      </div>
+      <div class="principle">
+        <b>2. 중요한 사실은 교차 검증한다</b>
+        <span>모든 AI는 틀린 정보를 그럴듯하게 말할 수 있습니다(할루시네이션). 숫자·날짜·법규처럼 틀리면 안 되는 정보는 출처가 달리는 AI(Perplexity 등)나 원문으로 다시 확인합니다.</span>
+      </div>
+      <div class="principle">
+        <b>3. 맥락(컨텍스트)을 충분히 준다</b>
+        <span>"좋은 답"은 "좋은 입력"에서 나옵니다. 목적, 대상 독자, 원하는 분량/톤을 먼저 알려주면 어떤 AI를 쓰든 결과가 좋아집니다.</span>
+      </div>
+      <div class="principle">
+        <b>4. 민감한 정보는 올리지 않는다</b>
+        <span>고객 개인정보, 미공개 계약 조건 등은 어떤 AI에도 그대로 붙여넣지 않습니다. 필요하면 익명화하거나 사내 승인된 엔터프라이즈 버전을 사용합니다.</span>
+      </div>
+      <div class="principle">
+        <b>5. 모델은 계속 바뀐다 — 주기적으로 재점검한다</b>
+        <span>이 페이지의 비교는 특정 시점의 스냅샷입니다. 새 모델이 나오면 "이 작업엔 지금도 이 AI가 맞나?"를 다시 확인하는 습관을 둡니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="callout">
+    <b>다음 단계로 발전시키기:</b> 이 페이지를 Optimy가 실제로 AI를 선택한 사례(예: "이 프로젝트는 왜 Claude로 코딩했는가")로 하나씩 채워가면, 03단계 "경쟁·레퍼런스 조사"와 07단계 "LLM 연동 검토"에서 바로 참고할 수 있는 판단 근거가 됩니다.
+  </div>
+
+  <div class="callout" style="border-color:rgba(79,191,166,0.35); background:rgba(79,191,166,0.08);">
+    <b>자동 조사 초안 — 검토 대기 중:</b> 2026-10-04에 웹 검색으로 자동 수집한 초안입니다. 여러 비교 블로그의 버전 번호가 서로 달라(신뢰도 낮음) 구체적 모델명은 의도적으로 뺐고, 교차 확인된 강점 방향성만 반영했습니다. 내용이 맞는지 한 번 훑어보고 이상 없으면 그대로 두세요. 다음 자동 갱신은 매월 1회입니다.
+  </div>
+
+  <footer>
+    <div>Optimy · 기획 로드맵 01</div>
+    <div><a href="optimai-hub.html">Project Hub로 돌아가기</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
